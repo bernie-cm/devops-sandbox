@@ -20,27 +20,33 @@ function drive_space {
 
 function top_processes_memory {
   # Use $1 to pass the number of top processes
-  echo "function top_processes_memory"
+  local count="${1:-5}"
+  echo "=== Top $count processes by memory ==="
+  ps aux --sort=-%mem | head -n $((count + 1))
 }
 
 function listening_ports {
-  echo "function listening_ports"
+  echo "=== Listening ports ==="
+  ss -tlnp
 }
 function show_failed_logins {
-  echo "function show_failed_logins"
+  echo "=== Failed login attempts ==="
+  grep "Failed password" /var/log/auth.log 2>/dev/null | tail -5 || echo "No failed login attempts found"
 }
 
 function last_sudo_invocations {
   # Use $1 to pass the number of sudo invocations desired
-  echo "function last_sudo_invocations"
+  local count="${1:-10}"
+  echo "=== Last $count sudo invocations ==="
+  grep "sudo:" /var/log/auth.log 2>/dev/null | tail -n "$count" || echo "No sudo invocations found"
 }
 
 ##### Main
-echo "System Heatlh Summary"
-echo $TITLE $HOSTNAME
+echo "System Health Summary"
+echo "$TITLE" "$HOSTNAME"
 
 # Write time stamp when the script was executed
-echo $TIMESTAMP
+echo "$TIMESTAMP"
 # Write uptime
 show_uptime
 # Write disk space
