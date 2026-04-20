@@ -1,7 +1,10 @@
 #!/bin/bash
 set -euo pipefail
+# sysreport.sh - A script to produce a one page health summary
 # Output one page system health summary
 # uptime
+echo "System Heatlh Summary"
+
 echo "=== UPTIME ==="
 echo "The system has been running since"
 uptime
