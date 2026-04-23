@@ -1,10 +1,10 @@
 # DevOps Sandbox
 
-Portfolio repository for a 6-month DevOps self-study roadmap, from beginner to job-ready junior DevOps/Cloud Engineer.
+Portfolio repository for a 6-month DevOps self-study roadmap.
 
 ## Phase 1 — System Audit Toolkit
 
-### sysreport.sh
+### `sysreport.sh`
 
 A Bash script that outputs a one-page system health summary:
 
