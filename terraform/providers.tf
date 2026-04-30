@@ -9,7 +9,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "devops-sandbox-tfstate-REPLACE_WITH_ACCOUNT_ID"
+    bucket         = "devops-sandbox-tfstate-bernie-aws"
     key            = "terraform.tfstate"
     region         = "ap-southeast-2"
     dynamodb_table = "terraform-locks"
